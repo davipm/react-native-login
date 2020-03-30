@@ -1,5 +1,6 @@
-import React from 'react';
-import { View, Text, StyleSheet, TextInput } from "react-native";
+import React from "react";
+import { View } from "react-native";
+import styled from "styled-components/native";
 
 type Input = {
   style?: any;
@@ -8,34 +9,33 @@ type Input = {
   isSecure?: boolean;
 };
 
-export default function InputTextField({ style, title, placeholderText, isSecure  }: Input) {
+export default function InputTextField({
+  style,
+  title,
+  placeholderText,
+  isSecure,
+}: Input) {
   return (
     <View style={style}>
-      <Text style={styles.inputTitle}>{title}</Text>
-      <TextInput
-        placeholder={placeholderText}
-        secureTextEntry={isSecure}
-        style={styles.input}
-      />
-      <View style={styles.divisor} />
+      <InputTitle>{title}</InputTitle>
+      <InputWrapper placeholder={placeholderText} secureTextEntry={isSecure} />
+      <Divisor />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  inputTitle: {
-    color: '#ABB4BD',
-    fontSize: 14
-  },
+const InputTitle = styled.Text`
+  color: #abb4bd;
+  font-size: 14px;
+`;
 
-  input: {
-    paddingVertical: 12,
-    color: '#1D2029',
-    fontSize: 14
-  },
+const InputWrapper = styled.TextInput`
+  padding: 12px 0;
+  color: #1d2029;
+  font-size: 14px;
+`;
 
-  divisor: {
-    borderBottomColor: '#D8D8D8',
-    borderBottomWidth: 1
-  }
-});
+const Divisor = styled.View`
+  border-bottom-color: #d8d8d8;
+  border-bottom-width: 1px;
+`;

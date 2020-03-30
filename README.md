@@ -13,6 +13,7 @@ use expo for deploy
 ## Built With
 
 * React Native
+* Styled Components
 * Expo
 * TypeScript
 
