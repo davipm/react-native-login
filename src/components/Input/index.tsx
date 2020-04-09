@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import styled from "styled-components/native";
+import { InputWrapper, Divisor, InputTitle } from "./style";
 
 type Input = {
   style?: any;
@@ -23,19 +23,3 @@ export default function InputTextField({
     </View>
   );
 }
-
-const InputTitle = styled.Text`
-  color: #abb4bd;
-  font-size: 14px;
-`;
-
-const InputWrapper = styled.TextInput`
-  padding: 12px 0;
-  color: #1d2029;
-  font-size: 14px;
-`;
-
-const Divisor = styled.View`
-  border-bottom-color: #d8d8d8;
-  border-bottom-width: 1px;
-`;
