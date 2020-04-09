@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, Platform } from "react-native";
+import { Text, View, Image } from "react-native";
 import styled from "styled-components/native";
 import InputTextField from "./components/Input";
 
@@ -9,7 +9,7 @@ import google from "./assets/google.png";
 
 export default function App() {
   return (
-    <Container behavior={Platform.OS == "ios" ? "padding" : "height"}>
+    <Container behavior="padding">
       <View>
         <LogoContent>
           <Image source={logo} />
@@ -17,12 +17,12 @@ export default function App() {
         </LogoContent>
 
         <ButtonContent>
-          <SocialButton style={styles.socialButtonShadow}>
+          <SocialButton>
             <SocialLogo source={facebook} />
             <Text>Facebook</Text>
           </SocialButton>
 
-          <SocialButton style={styles.socialButtonShadow}>
+          <SocialButton>
             <SocialLogo source={google} />
             <Text>Google</Text>
           </SocialButton>
@@ -39,7 +39,7 @@ export default function App() {
 
         <Link style={{ textAlign: "right" }}>Forgot Password?</Link>
 
-        <ButtonSubmit style={styles.buttonSubmit}>
+        <ButtonSubmit>
           <SubmitText>Login</SubmitText>
         </ButtonSubmit>
 
@@ -50,23 +50,6 @@ export default function App() {
     </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  socialButtonShadow: {
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 1,
-    shadowRadius: 20,
-    elevation: 5,
-  },
-
-  buttonSubmit: {
-    shadowColor: "rgba(255, 22, 84, 0.24)",
-    shadowOffset: { width: 0, height: 9 },
-    shadowOpacity: 1,
-    shadowRadius: 20,
-    elevation: 5,
-  },
-});
 
 const Container = styled.KeyboardAvoidingView`
   flex: 1;
@@ -100,6 +83,10 @@ const SocialButton = styled.TouchableOpacity`
   border-color: rgba(171, 180, 189, 0.65);
   border-radius: 4px;
   background-color: #fff;
+  shadow-offset: 0 10px;
+  shadow-opacity: 1;
+  shadow-radius: 20px;
+  elevation: 5;
 `;
 
 const SocialLogo = styled.Image`
@@ -128,6 +115,10 @@ const ButtonSubmit = styled.TouchableOpacity`
   font-size: 16px;
   border-radius: 4px;
   background-color: #ff1654;
+  shadow-offset: 0 10px;
+  shadow-opacity: 1;
+  shadow-radius: 20px;
+  elevation: 5;
 `;
 
 const SubmitText = styled.Text`
